@@ -12,9 +12,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-
   justify-content: center;
   align-items: center;
+  margin-top: 0px;
 }
 .movie {
   position: relative;
@@ -46,6 +46,7 @@ p {
   border: 3px solid black;
   border-radius: 12px;
   cursor: pointer;
+  background-color: var(--hover-color);
 }
 .movie:hover p {
   scale: 1.2;
@@ -100,4 +101,20 @@ button {
 }
 .movie:hover img {
   opacity: 0;
+}
+.checkout {
+  background-color: black;
+  color: black;
+  font-size: 5rem;
+}
+.play:hover {
+  transform: scale(1.1);
+}
+.play:active {
+  transform: scale(0.9);
+}
+@media screen and (max-width: 600px) {
+  .container {
+    margin-top: 100px;
+  }
 }
