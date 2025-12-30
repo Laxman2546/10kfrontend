@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  color: black;
+  color: white;
 }
 .container {
   width: 100%;
@@ -23,6 +23,7 @@ body {
   align-items: center;
   width: 250px;
   height: 350px;
+  transition: all 0.5s ease;
 }
 img {
   width: 250px;
@@ -51,7 +52,8 @@ p {
 .movie:hover p {
   scale: 1.2;
   opacity: 1;
-  color: black;
+  color: white;
+  font-weight: 600;
 }
 
 button {
@@ -102,11 +104,7 @@ button {
 .movie:hover img {
   opacity: 0;
 }
-.checkout {
-  background-color: black;
-  color: black;
-  font-size: 5rem;
-}
+
 .play:hover {
   transform: scale(1.1);
 }
