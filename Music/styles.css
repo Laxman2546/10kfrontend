@@ -68,28 +68,28 @@ h3 {
 .musicline1 {
   animation-name: animate;
   animation-duration: 1.2s;
-  animation-delay: 1s;
+  animation-delay: 0.2;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 .musicline2 {
   animation-name: animate;
   animation-duration: 1.2s;
-  animation-delay: 1.5s;
+  animation-delay: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 .musicline3 {
   animation-name: animate;
   animation-duration: 1.2s;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 .musicline4 {
   animation-name: animate;
   animation-duration: 1.2s;
-  animation-delay: 2.5s;
+  animation-delay: 1.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
