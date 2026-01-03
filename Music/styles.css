@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  gap: 60px;
+  border-radius: 25px;
+  background-color: #232222;
+}
+.songdetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.dookudu {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3px;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 1rem;
+}
+.image {
+  position: relative;
+}
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.musicline {
+  width: 5px;
+  height: 15px;
+  border-radius: 80px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.musicline1 {
+  animation-name: animate;
+  animation-duration: 1.2s;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.musicline2 {
+  animation-name: animate;
+  animation-duration: 1.2s;
+  animation-delay: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.musicline3 {
+  animation-name: animate;
+  animation-duration: 1.2s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.musicline4 {
+  animation-name: animate;
+  animation-duration: 1.2s;
+  animation-delay: 2.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.lines {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+  margin: auto;
+}
+.controls {
+  cursor: not-allowed;
+}
+@keyframes animate {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
