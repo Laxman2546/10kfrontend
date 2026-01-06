@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-wrap: nowrap;
 }
 body {
   width: 100%;
@@ -43,6 +44,7 @@ body {
 .items p {
   text-wrap: wrap;
 }
+
 .rightcontent {
   display: flex;
   flex-direction: row;
@@ -74,10 +76,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 .landingimg {
   width: 100vw;
   height: 100vh;
+  object-fit: cover;
 }
 .hamburger {
   display: none;
@@ -93,20 +97,43 @@ body {
     padding: 5px;
   }
   .items {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  .glocon p {
+    font-size: 0.8rem;
+  }
+  .leftcontent img {
+    max-height: 45px;
+    width: auto;
+  }
+  .rightcontent img {
+    max-height: 35px;
+    width: auto;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (width < 1200px) and (width > 600px) {
+  .glocon {
+    display: none;
+  }
+  .leftcontent img {
+    max-height: 35px;
+    width: auto;
+  }
+}
+@media screen and (max-width: 600px) {
   .navbar {
     padding-left: 3vw;
     padding-right: 2.5vw;
     position: relative;
     width: 100%;
     display: flex;
-
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+  .leftcontent img {
+    max-height: 35px;
+    width: auto;
   }
   .list {
     display: none;
@@ -146,6 +173,9 @@ body {
   }
   .leftcontent .second {
     display: flex;
+  }
+  .menu {
+    order: 1;
   }
   .hamburger {
     display: flex;
