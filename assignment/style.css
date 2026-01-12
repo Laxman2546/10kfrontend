@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "MyThemeFont";
+  src: url("./themify.woff");
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+nav {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navitems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+.items {
+  font-family: "MyThemeFont";
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.text {
+  width: 100%;
+  font-size: 4rem;
+}
+
+.image1 {
+  width: 100%;
+  height: 80%;
+}
+.text-data {
+  width: 60%;
+  display: flex;
+  padding: 7rem;
+  padding-left: 9rem;
+  flex-direction: column;
+  font-family: poppins;
+  align-items: start;
+  justify-content: start;
+  gap: 4rem;
+}
+
+.subtext {
+  color: #f62433;
+}
+.para {
+  font-size: 1.2rem;
+  color: #868686;
+}
+
+.landingbtn {
+  padding: 1.2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+  background-color: white;
+  outline: none;
+  border: 2px solid #868686;
+  font-weight: bold;
+  border-radius: 45px;
+}
