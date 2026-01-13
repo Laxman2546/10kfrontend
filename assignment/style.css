@@ -171,3 +171,102 @@ nav {
 .icon a:hover {
   color: #f62433;
 }
+.office {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8rem;
+  gap: 2rem;
+}
+.office2 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8rem;
+  gap: 2rem;
+}
+.address {
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.officeimgdiv {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: end;
+}
+.officeimgdiv2 {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: start;
+}
+.officeimage {
+  display: flex;
+  flex-direction: column;
+}
+.address p {
+  font-family: font3;
+  font-size: 1.2rem;
+  color: #868686;
+}
+.address h2 {
+  font-size: 4rem;
+}
+.address h2 {
+  font-size: 3rem;
+  color: #363636;
+  font-family: font2;
+}
+.address button {
+  max-width: fit-content;
+}
+.address span {
+  width: 70%;
+  height: 1px;
+  background-color: #f1f1f1;
+}
+.address .addresstext {
+  max-width: 75%;
+  font-family: font3;
+  font-size: 1rem;
+  line-height: 28px;
+  color: #868686;
+}
+.userdet {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-top: 25px;
+  gap: 25px;
+}
+
+.userdet h3 {
+  font-family: font2;
+  font-size: 0.9rem;
+  color: #363636;
+}
+.dets {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 0.5rem;
+}
+.userdet h5 {
+  font-family: font3;
+}
+.works {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
