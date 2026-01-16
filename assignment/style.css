@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
@@ -38,11 +41,14 @@ nav {
   align-items: center;
   gap: 2rem;
 }
+.items:nth-child(1) {
+  font-weight: bolder;
+}
 .items {
   font-family: "MyThemeFont";
   list-style: none;
   font-family: font3;
-
+  cursor: pointer;
   font-size: 1.1rem;
 }
 
@@ -73,7 +79,14 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation-name: imageAnimation;
+  animation-duration: 2s;
+  overflow: hidden;
 }
+.imagediv::-webkit-scrollbar {
+  display: none;
+}
+
 .image1 {
   width: 100%;
   height: 70%;
@@ -88,6 +101,8 @@ nav {
   align-items: start;
   justify-content: center;
   gap: 3rem;
+  animation-name: textAnimation;
+  animation-duration: 2s;
 }
 
 .subtext {
@@ -119,6 +134,11 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  animation-range: entry 0% cover 40%;
+  animation-name: servicesAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  transition: ease-in;
 }
 .title {
   text-align: center;
@@ -196,6 +216,9 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  animation-range: entry 0% cover 40%;
+  animation-name: textAnimation2;
+  animation-duration: 2s;
 }
 .officeimgdiv {
   width: 100%;
@@ -269,4 +292,346 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+.works h1 {
+  font-size: 3rem;
+  color: #363636;
+  font-family: font2;
+}
+.works p {
+  font-family: font3;
+  font-size: 1rem;
+  line-height: 35px;
+  color: #868686;
+}
+.cards {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.cards img {
+  object-fit: cover;
+}
+.team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5rem;
+  gap: 5rem;
+}
+.teamtitle {
+  text-align: center;
+}
+.team h1 {
+  font-size: 3rem;
+  color: #363636;
+  font-family: font2;
+}
+.team p {
+  font-family: font3;
+  font-size: 1rem;
+}
+
+.membercards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.members h1 {
+  font-size: 1.2rem;
+  color: #363636;
+  font-family: font3;
+}
+.numbers {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 100px;
+  text-align: center;
+  align-items: center;
+}
+.numbers h1 {
+  font-size: 3rem;
+  color: #363636;
+  font-family: font2;
+}
+.numbers p {
+  font-family: font3;
+  font-size: 1.1rem;
+  color: #868686;
+}
+.years {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.years h1 {
+  font-size: 5rem;
+  color: #f62433;
+  font-family: font2;
+}
+.years h3 {
+  font-family: font3;
+  font-size: 1.5rem;
+}
+.yearsdata {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.footer {
+  width: 100%;
+  height: 30vh;
+  padding: 3rem;
+  background-color: #363636;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footertop {
+  width: 100%;
+  height: 25vh;
+  background-color: #363636;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+}
+.social img {
+  width: 45;
+  height: 45;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: font3;
+  font-size: 0.9rem;
+  gap: 1rem;
+  color: #f1f1f1;
+}
+.line {
+  width: 80%;
+  height: 1px;
+  background-color: #868686;
+}
+.footerbottom {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger {
+  display: none;
+}
+@keyframes textAnimation {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes textAnimation2 {
+  0% {
+    transform: translateY(-350%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes imageAnimation {
+  0% {
+    transform: translateY(150%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes servicesAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+  }
+  .text-data {
+    padding: 0;
+    align-items: start;
+    text-align: start;
+    width: 80%;
+  }
+  .imagediv {
+    width: 80%;
+  }
+  .text{
+    font-size: 2.4rem;
+  }
+  .para {
+    font-size: 1.1rem;
+  }
+  .services {
+    height: auto;
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+  .title p {
+    padding-left: 4rem;
+    padding-right: 2rem;
+    text-align: start;
+    font-size: 1rem;
+    white-space:nowrap;
+    text-wrap: wrap;
+  }
+  .icontext {
+    flex-wrap: wrap;
+  }
+  .office,
+  .office2 {
+    flex-direction: column;
+    height: auto;
+    padding: 4rem 2rem;
+    gap: 4rem;
+  }
+  .address {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .officeimgdiv,
+  .officeimgdiv2 {
+    justify-content: center;
+  }
+  .works {
+    height: auto;
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .team {
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+  .numbers {
+    height: auto;
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+  .years {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .footertop {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    gap: 2rem;
+  }
+  .navitems {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+  }
+  .text {
+    font-size: 2.5rem;
+  }
+  .title h1,
+  .works h1,
+  .team h1,
+  .numbers h1 {
+    font-size: 2.5rem;
+  }
+  .address h2 {
+    font-size: 2rem;
+  }
+  .years h1 {
+    font-size: 4rem;
+  }
+  .years h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text {
+    font-size: 2rem;
+  }
+  .title h1,
+  .works h1,
+  .team h1,
+  .numbers h1 {
+    font-size: 2rem;
+  }
+  .address h2 {
+    font-size: 1.5rem;
+  }
+  .years h1 {
+    font-size: 3rem;
+  }
+  .years h3 {
+    font-size: 1rem;
+  }
+  .navitems {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .landingbtn {
+    padding: 1rem 2rem;
+  }
 }
