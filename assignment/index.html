@@ -17,11 +17,12 @@
           />
         </div>
         <div class="right">
-          <div class="hamburger">
+          <input type="checkbox" id="hamburger-checkbox" style="display: none;" />
+          <label for="hamburger-checkbox" class="hamburger">
             <span class="hamline"></span>
             <span class="hamline"></span>
             <span class="hamline"></span>
-          </div>
+          </label>
           <ul class="navitems">
             <li class="items">Home</li>
             <li class="items">Projects</li>
@@ -36,8 +37,7 @@
         <div class="content">
           <div class="text-data">
             <h1 class="text">
-              Delivering high quality, effective,<br />
-              and inspiring
+              Delivering high quality, effective, and inspiring
               <span class="subtext"> architecture </span>
             </h1>
             <div>
@@ -56,19 +56,19 @@
         <section class="services">
           <div class="title">
             <h1>Our main services</h1>
-            <p>
-              Nullam mattis sed justo quis sollicitudin. Maecenas lobortis<br />
-              fermentum fringilla. Vivamus in diam erat.
-            </p>
+            <p>Nullam mattis sed justo quis sollicitudin. Maecenas lobortis</p>
+            <span>fermentum fringilla. Vivamus in diam erat.</span>
           </div>
           <div class="icontext">
             <div class="icon">
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/50/f62433/stationery.png"
-                alt="stationery"
-              />
+              <div class="iconimg">
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/50/f62433/stationery.png"
+                  alt="stationery"
+                />
+              </div>
               <div class="heading">
                 <h1>Architecture</h1>
               </div>
@@ -82,12 +82,14 @@
               <a href="#">Learn more</a>
             </div>
             <div class="icon">
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/50/f62433/home--v1.png"
-                alt="home--v1"
-              />
+              <div class="iconimg">
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/50/f62433/home--v1.png"
+                  alt="home--v1"
+                />
+              </div>
               <div class="heading">
                 <h1>Interior design</h1>
               </div>
@@ -101,12 +103,14 @@
               <a href="#">Learn more</a>
             </div>
             <div class="icon">
-              <img
-                width="40"
-                height="40"
-                src="https://img.icons8.com/ios/f62433/50/performance-smartphone.png"
-                alt="performance-smartphone"
-              />
+              <div class="iconimg">
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/ios/f62433/50/performance-smartphone.png"
+                  alt="performance-smartphone"
+                />
+              </div>
               <div class="heading">
                 <h1>Exterior design</h1>
               </div>
@@ -198,21 +202,86 @@
             </p>
           </div>
           <div class="cards">
-            <img
-              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash5.jpg"
-            />
-            <img
-              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash4.jpg"
-            />
-            <img
-              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash3.jpg"
-            />
-            <img
-              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash2.jpg"
-            />
-            <img
-              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash1.jpg"
-            />
+            <div class="image">
+              <div class="hovercard">
+                <h2>Central Offices</h2>
+                <span>OFFICES</span>
+                <img
+                  width="12"
+                  height="12"
+                  src="https://img.icons8.com/ios-glyphs/F4F5F0/90/fit-to-width.png"
+                  alt="fit-to-width"
+                />
+              </div>
+              <img
+              class="realimg"
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash5.jpg"
+              />
+            </div>
+            <div class="image">
+              <div class="hovercard">
+                <h2>Shopping Center</h2>
+                <span>SHOPPING</span>
+                <img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios-glyphs/F4F5F0/90/fit-to-width.png"
+                  alt="fit-to-width"
+                />
+              </div>
+              <img
+                class="realimg"
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash4.jpg"
+              />
+            </div>
+            <div class="image">
+              <div class="hovercard">
+                <h2>Resident Area</h2>
+                <span>RESIDENT</span>
+                <img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios-glyphs/F4F5F0/90/fit-to-width.png"
+                  alt="fit-to-width"
+                />
+              </div>
+              <img
+                class="realimg"
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash3.jpg"
+              />
+            </div>
+            <div class="image">
+              <div class="hovercard">
+                <h2>Office Center</h2>
+                <span>OFFICES</span>
+                <img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios-glyphs/F4F5F0/90/fit-to-width.png"
+                  alt="fit-to-width"
+                />
+              </div>
+              <img
+                class="realimg"
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash2.jpg"
+              />
+            </div>
+            <div class="image">
+              <div class="hovercard">
+                <h2>Apartments</h2>
+                <span>APARTMENTS</span>
+                <img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios-glyphs/F4F5F0/90/fit-to-width.png"
+                  alt="fit-to-width"
+                />
+              </div>
+              <img
+                class="realimg"
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-9cU_HC5CND8-unsplash1.jpg"
+              />
+            </div>
           </div>
           <button class="landingbtn">View All Projects</button>
         </section>
@@ -289,55 +358,55 @@
               <h3>Employees</h3>
             </div>
           </div>
-          <div class="footer">
-            <div class="footertop">
-              <div class="logodet">
-                <img
-                  src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/Jevelin_logo_light.png"
-                  alt="Javaline logo"
-                />
-              </div>
-
-              <ul class="links">
-                <li>Home</li>
-                <li>Projects</li>
-                <li>News</li>
-                <li>Contact</li>
-              </ul>
-
-              <div class="social">
-                <img
-                  width="24"
-                  height="24"
-                  src="https://img.icons8.com/material-outlined/24/F4F5F0/linkedin--v1.png"
-                  alt="linkedin--v1"
-                />
-                <img
-                  width="24"
-                  height="24"
-                  src="https://img.icons8.com/ios-glyphs/30/F4F5F0/twitter--v1.png"
-                  alt="twitter--v1"
-                />
-                <img
-                  width="24"
-                  height="24"
-                  src="https://img.icons8.com/ios-filled/50/F4F5F0/facebook-new.png"
-                  alt="facebook-new"
-                />
-                <img
-                  width="24"
-                  height="24"
-                  src="https://img.icons8.com/windows/32/F4F5F0/instagram-new.png"
-                  alt="instagram-new"
-                />
-              </div>
+        </section>
+        <div class="footer">
+          <div class="footertop">
+            <div class="logodet">
+              <img
+                src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/Jevelin_logo_light.png"
+                alt="Javaline logo"
+              />
             </div>
-            <span class="line"></span>
-            <div class="footerbottom">
-              <p>Copyright © JevelinTheme - Theme by Lakshman</p>
+
+            <ul class="links">
+              <li>Home</li>
+              <li>Projects</li>
+              <li>News</li>
+              <li>Contact</li>
+            </ul>
+
+            <div class="social">
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/material-outlined/24/F4F5F0/linkedin--v1.png"
+                alt="linkedin--v1"
+              />
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/ios-glyphs/30/F4F5F0/twitter--v1.png"
+                alt="twitter--v1"
+              />
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/ios-filled/50/F4F5F0/facebook-new.png"
+                alt="facebook-new"
+              />
+              <img
+                width="24"
+                height="24"
+                src="https://img.icons8.com/windows/32/F4F5F0/instagram-new.png"
+                alt="instagram-new"
+              />
             </div>
           </div>
-        </section>
+          <span class="line"></span>
+          <div class="footerbottom">
+            <p>Copyright © JevelinTheme - Theme by Lakshman</p>
+          </div>
+        </div>
       </div>
     </main>
   </body>

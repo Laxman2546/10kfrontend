@@ -5,7 +5,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 @font-face {
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -81,6 +81,8 @@ nav {
   justify-content: center;
   animation-name: imageAnimation;
   animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow: hidden;
 }
 .imagediv::-webkit-scrollbar {
@@ -103,6 +105,8 @@ nav {
   gap: 3rem;
   animation-name: textAnimation;
   animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .subtext {
@@ -137,8 +141,8 @@ nav {
   animation-range: entry 0% cover 40%;
   animation-name: servicesAnimation;
   animation-duration: 2s;
-  animation-timing-function: linear;
-  transition: ease-in;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: both;
 }
 .title {
   text-align: center;
@@ -148,7 +152,8 @@ nav {
   color: #363636;
   font-family: font2;
 }
-.title p {
+.title p,
+.title span {
   font-size: 1.2rem;
   font-family: font3;
   color: #868686;
@@ -191,6 +196,7 @@ nav {
 .icon a:hover {
   color: #f62433;
 }
+
 .office {
   width: 100%;
   height: 100vh;
@@ -200,6 +206,7 @@ nav {
   justify-content: space-between;
   padding-left: 8rem;
   gap: 2rem;
+  overflow-x: hidden;
 }
 .office2 {
   width: 100%;
@@ -209,6 +216,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding-right: 8rem;
+  overflow-x: hidden;
   gap: 2rem;
 }
 .address {
@@ -219,6 +227,8 @@ nav {
   animation-range: entry 0% cover 40%;
   animation-name: textAnimation2;
   animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .officeimgdiv {
   width: 100%;
@@ -311,11 +321,77 @@ nav {
   height: 60%;
   display: flex;
   flex-direction: row;
-  gap: 5px;
 }
-.cards img {
+.image {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
   object-fit: cover;
 }
+.hovercard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-image: linear-gradient(
+    to top right,
+    transparent,
+    rgba(255, 0, 0, 0.52)
+  );
+  color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+}
+.hovercard h2,
+.hovercard span {
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  transition-delay: 0.2s;
+}
+.image:hover .hovercard {
+  opacity: 1;
+  visibility: visible;
+}
+.image:hover .hovercard h2,
+.image:hover .hovercard span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hovercard img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  display: none;
+}
+.realimg {
+  transition: all 0.5s ease-in-out;
+}
+.image:hover .hovercard img {
+  display: flex;
+}
+.image:hover .realimg {
+  scale: 1.5;
+}
+
 .team {
   width: 100%;
   display: flex;
@@ -362,10 +438,11 @@ nav {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 100px;
   text-align: center;
   align-items: center;
+  gap: 2rem;
 }
 .numbers h1 {
   font-size: 3rem;
@@ -401,8 +478,8 @@ nav {
 }
 .footer {
   width: 100%;
-  height: 30vh;
-  padding: 3rem;
+  height: auto;
+  padding: 1rem;
   background-color: #363636;
   display: flex;
   flex-direction: column;
@@ -411,9 +488,9 @@ nav {
 }
 .footertop {
   width: 100%;
-  height: 25vh;
   background-color: #363636;
   display: flex;
+  padding: 2rem;
   align-items: center;
   justify-content: space-around;
 }
@@ -435,44 +512,53 @@ nav {
   font-size: 0.9rem;
   gap: 1rem;
   color: #f1f1f1;
+  list-style: none;
 }
 .line {
   width: 80%;
   height: 1px;
+  margin: 3rem;
   background-color: #868686;
 }
 .footerbottom {
   width: 100%;
-  height: 15vh;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 .hamburger {
   display: none;
 }
 @keyframes textAnimation {
   0% {
-    transform: translateY(-150%);
+    opacity: 0;
+    transform: translateY(-50px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0%);
   }
 }
 @keyframes textAnimation2 {
   0% {
-    transform: translateY(-350%);
+    opacity: 0;
+    transform: translateY(-50px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0%);
   }
 }
 @keyframes imageAnimation {
   0% {
-    transform: translateY(150%);
+    opacity: 0;
+    transform: translateY(50px);
   }
   100% {
+    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -487,6 +573,13 @@ nav {
 }
 
 @media screen and (max-width: 1024px) {
+  .image {
+    width: 100%;
+    height: 50%;
+  }
+  nav {
+    padding: 1.5rem;
+  }
   .content {
     flex-direction: column-reverse;
     align-items: center;
@@ -495,15 +588,17 @@ nav {
   }
   .text-data {
     padding: 0;
-    align-items: start;
-    text-align: start;
-    width: 80%;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    word-break: none;
   }
   .imagediv {
-    width: 80%;
+    width: 100%;
   }
-  .text{
-    font-size: 2.4rem;
+  .text,
+  .subtext {
+    font-size: 2.5rem;
   }
   .para {
     font-size: 1.1rem;
@@ -513,54 +608,105 @@ nav {
     gap: 4rem;
     padding-bottom: 4rem;
   }
-  .title p {
-    padding-left: 4rem;
+  .title p,
+  .title span {
+    padding-left: 2rem;
     padding-right: 2rem;
-    text-align: start;
+    text-align: center;
     font-size: 1rem;
-    white-space:nowrap;
+    white-space: nowrap;
     text-wrap: wrap;
   }
   .icontext {
-    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .icon {
+    max-width: 100%;
+  }
+  .iconimg {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon:nth-child(0) {
+    align-items: center;
+  }
+  .icon h1 {
+    font-size: 1.5rem;
+    display: flex;
   }
   .office,
   .office2 {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
-    padding: 4rem 2rem;
-    gap: 4rem;
+    padding: 1rem;
+    gap: 1.3rem;
   }
   .address {
     max-width: 100%;
-    align-items: center;
-    text-align: center;
+    padding-left: 1.5rem;
+    align-items: start;
+    text-align: start;
+  }
+  .address p {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+  .address h2 {
+    font-size: 2.8rem;
+  }
+  .address .addresstext {
+    max-width: 100%;
   }
   .officeimgdiv,
   .officeimgdiv2 {
     justify-content: center;
   }
+  .userdet {
+    flex-direction: column;
+  }
   .works {
+    margin-top: 2rem;
     height: auto;
     gap: 4rem;
     padding-bottom: 4rem;
+    padding: 1rem;
   }
   .cards {
     flex-wrap: wrap;
     justify-content: center;
+    height: auto;
   }
   .team {
     gap: 4rem;
     padding-bottom: 4rem;
+    padding: 1rem;
+  }
+  .membercards {
+    gap: 2.5rem;
+  }
+  .members {
+    gap: 0.5rem;
+  }
+  .members h1 {
+    font-size: 1.4rem;
   }
   .numbers {
     height: auto;
-    gap: 4rem;
+    gap: 2rem;
+    padding: 0.5rem;
     padding-bottom: 4rem;
   }
   .years {
     flex-wrap: wrap;
     gap: 2rem;
+  }
+  .yearsdata {
+    gap: 0.5rem;
   }
   .footertop {
     flex-direction: column;
@@ -569,14 +715,54 @@ nav {
   .footer {
     height: auto;
   }
+  .footerbottom {
+    font-size: 0.9rem;
+    text-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 768px) {
   nav {
     gap: 2rem;
   }
+  .right {
+    position: relative;
+  }
   .navitems {
-    display: none;
+    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
+    top: 300%;
+    width: 100vw;
+    right: -23px;
+    background: #232323;
+    color: gray;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    align-items: start;
+    z-index: 10;
+    transform: translateY(-20px);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+  }
+  .items:nth-child(1) {
+    color: white;
+  }
+  .items:nth-child(4) {
+    border: none;
+  }
+  .items {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 0.8rem;
+    border-bottom: 1px solid gray;
+  }
+  #hamburger-checkbox:checked ~ .navitems {
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .hamburger {
     display: flex;
@@ -587,21 +773,30 @@ nav {
     width: 25px;
     height: 3px;
     background-color: black;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  #hamburger-checkbox:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  #hamburger-checkbox:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger-checkbox:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
   .text {
     font-size: 2.5rem;
   }
   .title h1,
   .works h1,
-  .team h1,
   .numbers h1 {
     font-size: 2.5rem;
   }
   .address h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   .years h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .years h3 {
     font-size: 1.2rem;
@@ -613,24 +808,13 @@ nav {
     font-size: 2rem;
   }
   .title h1,
-  .works h1,
-  .team h1,
-  .numbers h1 {
+  .works h1 {
     font-size: 2rem;
   }
   .address h2 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
   }
-  .years h1 {
-    font-size: 3rem;
-  }
-  .years h3 {
-    font-size: 1rem;
-  }
-  .navitems {
-    flex-direction: column;
-    gap: 1rem;
-  }
+
   .landingbtn {
     padding: 1rem 2rem;
   }
