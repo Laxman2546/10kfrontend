@@ -1,0 +1,85 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+a {
+  all: unset;
+}
+@font-face {
+  font-family: "MyThemeFont";
+  src: url("./themify.woff");
+}
+@font-face {
+  font-family: "font2";
+  src: url("./font2.woff2");
+}
+@font-face {
+  font-family: "font3";
+  src: url("./quick.woff2");
+}
+.projectContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  gap: 1rem;
+  background-color: #f7f7f7;
+}
+
+.projectContainer h1 {
+  font-family: "font2";
+  font-size: 1.5rem;
+  color: #363636;
+}
+.links {
+  word-wrap: nowrap;
+}
+.links a {
+  font-family: "MyThemeFont";
+  font-size: 0.9rem;
+  color: #4f4f4f;
+  font-weight: 300;
+}
+.links span {
+  font-family: "MyThemeFont";
+  font-size: 0.9rem;
+  color: #aaa9a9;
+  font-weight: 300;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.filters p {
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.filters p:hover {
+  color: #f64da3;
+  cursor: pointer;
+}
+.filters p:nth-child(1) {
+  color: #f64da3;
+}
+.filters :nth-child(1):after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  border-radius: 50px;
+  background-color: #ff0000;
+}

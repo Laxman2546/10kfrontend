@@ -1,0 +1,88 @@
+.form {
+  max-width: 800px;
+  width: 90%;
+  height: 100vh;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 10px;
+  animation-name: trans;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+
+}
+.surName {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.labelCheck {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  gap: 0.5rem;
+}
+.labelCheck label {
+  text-align: start;
+  font-family: "font3";
+  font-weight: 700;
+}
+.inputField input,
+.inputField textarea {
+  padding: 1rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid #d7d7d7;
+  border-radius: 25px;
+  box-sizing: border-box;
+}
+.inputField textarea {
+  height: 250px;
+}
+.btn {
+  width: 100%;
+}
+.submitBtn {
+  all: unset;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #ff0000;
+  color: white;
+  font-size: 0.8rem;
+  font-family: "font2";
+  font-weight: 800;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .surName {
+    flex-direction: column;
+  }
+}
+
+@keyframes trans {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
