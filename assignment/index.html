@@ -55,6 +55,16 @@
               src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-G3uNjEPiWtU-unsplash3.jpg"
               alt="architecture"
             />
+            <img
+              class="image2"
+              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-G3uNjEPiWtU-unsplash.jpg"
+              alt="architecture"
+            />
+            <img
+              class="image3"
+              src="https://jevelin.shufflehound.com/architect/wp-content/uploads/sites/30/2019/03/joel-filipe-G3uNjEPiWtU-unsplash2.jpg"
+              alt="architecture"
+            />
           </div>
         </div>
         <section class="services">
@@ -373,10 +383,10 @@
             </div>
 
             <ul class="links">
-              <li>Home</li>
-              <li>Projects</li>
-              <li>News</li>
-              <li>Contact</li>
+              <a href="index.html" style="font-weight: bold">Home</a>
+              <a href="Projects.html">Projects</a>
+              <a href="News.html">News</a>
+              <a href="Contact.html">Contact</a>
             </ul>
 
             <div class="social">
@@ -419,4 +429,27 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll(".imagediv img");
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.remove("active");
+        if (i === index) {
+          img.classList.add("active");
+        }
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      showImage(currentImageIndex);
+    }
+
+    if (images.length > 0) {
+      showImage(0);
+      setInterval(nextImage, 3000);
+    }
+  </script>
 </html>
