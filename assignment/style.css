@@ -707,7 +707,11 @@ nav {
     justify-content: center;
   }
   .userdet {
+    width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .works {
     margin-top: 2rem;
@@ -794,7 +798,7 @@ nav {
     border: none;
   }
   .items {
-    width: 100%;
+    width: 80%;
     padding: 1.2rem;
     font-size: 0.8rem;
     border-bottom: 1px solid gray;
@@ -826,6 +830,9 @@ nav {
   #hamburger-checkbox:checked ~ .hamburger span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
+  .imagediv {
+    max-width: 100%;
+  }
   .text {
     font-size: 2.5rem;
   }
@@ -846,8 +853,14 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
+  .image {
+    width: 150%;
+    height: 150%;
+  }
   .text {
     font-size: 2rem;
+  }
+  .userdet {
   }
   .title h1,
   .works h1 {
@@ -855,6 +868,10 @@ nav {
   }
   .address h2 {
     font-size: 2.1rem;
+  }
+
+  .membercards .members img {
+    width: 100%;
   }
 
   .landingbtn {

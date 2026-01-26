@@ -38,6 +38,12 @@
   overflow-y: hidden;
   object-fit: cover;
 }
+.blogdata h1 {
+  font-size: 2rem;
+}
+.blogdata p {
+  font-size: 0.9rem;
+}
 .hovercard {
   display: flex;
   flex-direction: column;
