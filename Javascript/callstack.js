@@ -58,6 +58,7 @@ checkEven(
   },
 );
 
+
 function performTasks(num, add, multiply) {
   num = add(num);
   num = multiply(num);
