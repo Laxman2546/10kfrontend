@@ -6,6 +6,6 @@ btn.addEventListener("click", () => {
   const p = document.createElement("p");
   const number = Math.floor(Math.random() * nick.length);
   console.log(number);
-  p.innerHTML = `<b>${input.value}</b> your nickname is <b>${nick[number]}</b>`;
+  p.innerHTML = `<b>${input.value}</b> your nickname <b>${nick[number]}</b>`;
   document.body.appendChild(p);
 });
