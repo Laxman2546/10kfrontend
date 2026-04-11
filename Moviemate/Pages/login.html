@@ -30,16 +30,27 @@
               required
             />
           </div>
-          <div class="input-group">
+          <div class="input-group input2">
             <label for="password">Password</label>
             <input
               type="password"
               id="password"
-              class="input-field input2"
+              class="input-field"
               name="password"
               placeholder="Enter your password"
               required
             />
+            <div
+              class="toggle-password-container"
+              onclick="togglePasswordVisibility()"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
+                alt="Show Password"
+                id="togglePassword"
+                class="toggle-password"
+              />
+            </div>
           </div>
           <button type="submit">Login</button>
           <p class="noaccount">
@@ -49,5 +60,10 @@
         </form>
       </div>
     </div>
+    <script>
+     
+    </script>
+
+    <script src="/scripts/login.js"></script>
   </body>
 </html>
