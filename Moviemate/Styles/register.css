@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  height: 100vh;
+  gap: 250px;
+  font-family: poppins, sans-serif;
+}
+
+.container .poster {
+  width: 40%;
+  height: 100%;
+}
+.poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-size: cover;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  object-fit: cover;
+  overflow: hidden;
+}
+.container h1 {
+  margin-bottom: 20px;
+  font-family: poppins, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.container form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container form input {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+.container form .input-group {
+  display: flex;
+  flex-direction: column;
+}
+.container form input:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+.container form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.container form input::placeholder {
+  color: #999;
+  font-family: poppins, sans-serif;
+}
+
+.container form button {
+  padding: 12px 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 18px;
+  background-color: #007bff;
+  color: white;
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container form button:hover {
+  background-color: #0056b3;
+}
+.noaccount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: poppins, sans-serif;
+  font-size: 0.9rem;
+}
+.signup-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.signup-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
