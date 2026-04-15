@@ -4,12 +4,12 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: "AIzaSyAFrFq_1rjBb_FOlvq_NzSx4v2lAxIOx7Y",
-  authDomain: "moviemate-3fc6d.firebaseapp.com",
-  projectId: "moviemate-3fc6d",
-  storageBucket: "moviemate-3fc6d.firebasestorage.app",
-  messagingSenderId: "908402787092",
-  appId: "1:908402787092:web:9f116cdc5df4273f053801",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
   measurementId: "G-XZGPDQ3ZQX",
 };
 
