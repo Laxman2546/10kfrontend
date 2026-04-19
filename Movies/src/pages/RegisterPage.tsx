@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../db/firebase.js";
 import { db } from "../db/firebase.js";
 import { setDoc, doc } from "firebase/firestore";
-const RegisterPage: React.FC = () => {
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -31,12 +34,22 @@ const RegisterPage: React.FC = () => {
       console.error("Error creating user:", error);
     }
   };
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
   return (
-    <div className="flex flex-row items-center justify-start h-screen gap-24 font-poppins px-12">
-      <div>
-        <h1 className="mb-5 font-medium text-2xl">It's All Start here</h1>
-        <form onSubmit={handleSubmit} className="w-96 flex flex-col gap-5">
+    <div className="flex flex-col md:flex-row items-center justify-center md:justify-between min-h-screen gap-4 md:gap-24 font-poppins p-4 md:p-0">
+      <div className="w-full md:w-auto md:pl-16 lg:pl-20 flex flex-col items-center md:items-start justify-center">
+        <h1 className="mb-5 font-medium text-2xl text-center md:text-left">
+          It's All Start here
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm md:w-96 flex flex-col gap-5"
+        >
           <div className="flex flex-col">
             <label htmlFor="email" className="font-poppins font-medium">
               Email
@@ -67,12 +80,12 @@ const RegisterPage: React.FC = () => {
               required
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col relative">
             <label htmlFor="password" className="font-poppins font-medium">
               Password
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               className="px-4 py-3 border border-gray-300 rounded-full font-poppins text-base mt-2 transition-all hover:border-blue-500 hover:shadow-md focus:outline-none focus:border-blue-500 focus:shadow-md placeholder:text-gray-400"
@@ -81,8 +94,19 @@ const RegisterPage: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <div
+              className="absolute right-6 top-12 flex items-center cursor-pointer"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? (
+                <FaEye className="text-gray-500" />
+              ) : (
+                <FaEyeSlash className="text-gray-500" />
+              )}
+            </div>
           </div>
-          <div className="flex flex-col">
+
+          <div className="flex flex-col relative">
             <label
               htmlFor="confirm-password"
               className="font-poppins font-medium"
@@ -90,23 +114,33 @@ const RegisterPage: React.FC = () => {
               Confirm Password
             </label>
             <input
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               id="confirm-password"
-              name="confirm-password"
+              name="confirm-  password"
               className="px-4 py-3 border border-gray-300 rounded-full font-poppins text-base mt-2 transition-all hover:border-blue-500 hover:shadow-md focus:outline-none focus:border-blue-500 focus:shadow-md placeholder:text-gray-400"
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
+            <div
+              className="absolute right-6 top-12 flex items-center cursor-pointer"
+              onClick={toggleConfirmPasswordVisibility}
+            >
+              {showConfirmPassword ? (
+                <FaEye className="text-gray-500" />
+              ) : (
+                <FaEyeSlash className="text-gray-500" />
+              )}
+            </div>
           </div>
           <button
             type="submit"
-            className="px-4 py-3 mt-2 border-0 rounded-full bg-blue-500 text-white font-poppins font-semibold cursor-pointer transition-colors hover:bg-blue-700"
+            className={`${!username || !password || !confirmPassword || password !== confirmPassword ? "bg-gray-500 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 cursor-pointer"} px-4 py-3 mt-2 border-0 rounded-full text-white font-poppins font-semibold  transition-colors w-full`}
           >
             Register
           </button>
-          <p className="flex items-center justify-center mt-2 font-poppins text-sm">
+          <p className="flex flex-wrap items-center justify-center mt-2 font-poppins text-sm">
             Already have an account?
             <a
               className="text-blue-500 no-underline font-medium cursor-pointer hover:underline ml-1"
@@ -117,7 +151,7 @@ const RegisterPage: React.FC = () => {
           </p>
         </form>
       </div>
-      <div className="w-2/5 h-full">
+      <div className="hidden md:block w-full md:w-2/5 h-64 md:h-screen">
         <img
           src="https://m.media-amazon.com/images/M/MV5BMjZmZGMyYjgtMGU2Mi00ZGE1LTkwYjEtYzdkYTA0ODI0MDI2XkEyXkFqcGc@._V1_.jpg"
           alt="Register Image"

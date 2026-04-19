@@ -1,42 +1,78 @@
-import React, { useState } from "react";
-const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState("");
+import { useEffect, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { auth } from "../db/firebase";
+import { signInWithEmailAndPassword } from "@firebase/auth";
+import Errors from "../components/Errors";
+import { useNavigate } from "react-router-dom";
+const LoginPage = () => {
+  const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
+  const [error, setError] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Login attempt:", { username, password });
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
+      navigate("/home");
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(true);
+    }
+  };
+  useEffect(() => {
+    if (error) {
+      removeError();
+    }
+  }, [error]);
+
+  const removeError = () => {
+    setTimeout(() => {
+      setError(false);
+    }, 3000);
   };
 
   return (
-    <div className="flex flex-row items-center justify-start h-screen gap-24 font-poppins px-12">
-      <div className="w-2/5 h-full">
+    <div className="flex flex-col md:flex-row items-center justify-center md:justify-between min-h-screen gap-4 md:gap-24 font-poppins p-4 md:p-0">
+      <div className="hidden md:block w-full md:w-2/5 h-64 md:h-screen">
         <img
           src="https://m.media-amazon.com/images/M/MV5BNmIwYTI3ODItMzRkOS00MzlhLWI4NzQtNDFmOGJhZGJhM2VkXkEyXkFqcGc@._V1_.jpg"
           alt="Login Image"
           className="w-full h-full object-cover rounded-r-3xl"
         />
       </div>
-      <div>
+      <div className="w-full md:w-auto md:pr-16 lg:pr-72 flex flex-col justify-center md:justify-center items-center">
+        {error && (
+          <Errors
+            isError={error}
+            errorText={"Invalid email or password"}
+            errorStyles={"mb-4 w-full max-w-sm md:w-96 text-center"}
+          />
+        )}
         <h1 className="mb-5 font-medium text-2xl">Welcome back!</h1>
-        <form onSubmit={handleSubmit} className="w-96 flex flex-col gap-5">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm md:w-96 flex flex-col gap-5"
+        >
           <div className="flex flex-col">
-            <label htmlFor="username" className="font-poppins font-medium">
-              Username
+            <label htmlFor="email" className="font-poppins font-medium">
+              Email
             </label>
             <input
-              type="text"
-              id="username"
-              name="username"
+              type="email"
+              id="email"
+              name="email"
               className="px-4 py-3 border border-gray-300 rounded-full font-poppins text-base mt-2 transition-all hover:border-blue-500 hover:shadow-md focus:outline-none focus:border-blue-500 focus:shadow-md placeholder:text-gray-400"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
               required
             />
           </div>
@@ -58,20 +94,21 @@ const LoginPage: React.FC = () => {
               className="absolute right-6 top-12 flex items-center cursor-pointer"
               onClick={togglePasswordVisibility}
             >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
-                alt="Show Password"
-                className="w-6 h-6"
-              />
+              {showPassword ? (
+                <FaEye className="text-gray-500" />
+              ) : (
+                <FaEyeSlash className="text-gray-500" />
+              )}
             </div>
           </div>
           <button
             type="submit"
-            className="px-4 py-3 mt-2 border-0 rounded-full bg-blue-500 text-white font-poppins font-semibold cursor-pointer transition-colors hover:bg-blue-700"
+            disabled={!email || !password}
+            className={`${!email || !password ? "bg-gray-500 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700 cursor-pointer"} px-4 py-3 mt-2 border-0 rounded-full text-white font-poppins font-semibold  transition-colors`}
           >
             Login
           </button>
-          <p className="flex items-center justify-center mt-2 font-poppins text-sm">
+          <p className="flex flex-wrap items-center justify-center mt-2 font-poppins text-sm">
             Don't have an account?
             <a
               className="text-blue-500 no-underline font-medium cursor-pointer hover:underline ml-1"

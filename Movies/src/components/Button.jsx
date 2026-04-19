@@ -1,4 +1,3 @@
-import React from "react";
 import { themeColors } from "../hooks/theme.js";
 
 const Button = ({
