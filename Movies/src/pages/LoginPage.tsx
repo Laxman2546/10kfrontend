@@ -21,7 +21,9 @@ const LoginPage = () => {
         email,
         password,
       );
-      navigate("/home");
+      if (userCredential.user) {
+        navigate("/home");
+      }
     } catch (error) {
       console.error("Login error:", error);
       setError(true);
